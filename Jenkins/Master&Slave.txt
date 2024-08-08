@@ -1,0 +1,92 @@
+Jankins instance --- Master
+Slave instance ---Slave 
+
+Go to Manage Jenkins 
+  go to Nodes
+   give slave name
+   select permanent agent
+   create
+number of executors (2 or 3
+remote root directory ( /home/ec2-user/jenkins)
+label( dev or test or prod )
+usage ( Only build jobs with label expression matching this node )
+launch method ( Launch agents via SSH )
+Host( slave's private IP address )
+Creditionals 
+   add 
+    Kind( SSH Username with private key
+   Scope System ( Jenkins and nodes only)
+Id 
+description
+Username
+private key 
+ Enter directly 
+ paste private key( if key is in .ppk then convert it into .pem and paste it here)
+ADD
+
+#############################################################################
+
+Topic: User Management  
+
+Create users 
+ go to manage jenkins
+  under security 
+     users---- create users 
+Create roles
+manage jenkins
+ Plugins: role based autherization strategy
+In security 
+  authorization ( role based strategy) will appear
+
+Now under security 
+Manage and assign roles ( Option will appear )
+go to Manage and assign roles 
+  add roles
+  assign roles
+
+
+JOB based access to the users
+go to security 
+authorization ( Project based matrix authorization strategy )
+add users and give their permissions
+
+Now to JOB 
+ General 
+    Enable project based security
+    add user and give persimissions for that job 
+
+
+######################################################################################
+
+Pipeline: Pipeline is a group of events interlinked with each other in a sequence
+
+
+pipeline {
+    agent any 
+    stages {
+            stage ("Code")  {
+                steps {
+                    echo "welcome to pipeline"
+                }
+            }
+            stage ("Build") {
+                steps {
+                    echo "  from build"
+                }
+            }
+            stage ("Test") {
+                steps {
+                    echo " from code"
+                }
+            }
+    }
+}
+
+
+
+
+
+
+
+
+

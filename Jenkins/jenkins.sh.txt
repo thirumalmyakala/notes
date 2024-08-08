@@ -1,0 +1,14 @@
+ wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+ rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+ amazon-linux-extras install java-openjdk11 -y
+ yum install jenkins -y
+ systemctl start jenkins
+
+
+
+yum install java-1.8.0-openjdk -y
+yum install maven -y
+
+
+How to take a instance from one region to different region?
+we can't take an instance from one region to different region, so we create a AMI from that instance and import a instance from that AMI different region.
